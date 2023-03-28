@@ -1,6 +1,6 @@
 # MGE
 
-Version: 0.2.0  
+Beta Version: 0.2.1  
 [other versions](https://github.com/lucas224112/MGE_Other_Versions)
 
 ## Installing
