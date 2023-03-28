@@ -169,8 +169,8 @@ class ObjectTextBox:
         else:
             cache_limit_size = self.limit_size
         if len(self.text) < cache_limit_size:
-            if self.copy_and_paste and not Platform.system == "Android":
-                if keyboard("ctrl"):
+            if keyboard("ctrl"):
+                if self.copy_and_paste and not Platform.system == "Android":
                     if keyboard("v"):
                         if Cache.Temp.Keyboard["key_v_cache"]["press"]:
                             self.text += pyperclip.paste()
@@ -183,6 +183,14 @@ class ObjectTextBox:
                             Cache.Temp.Keyboard["key_c_cache"]["press"] = False
                     else:
                         Cache.Temp.Keyboard["key_c_cache"]["press"] = True
+                if keyboard("z"):
+                    if Cache.Temp.Keyboard["key_z_cache"]["press"]:
+                        if len(self.cache_texts) > 1:
+                            self.text = str(self.cache_texts[len(self.cache_texts) - 2])
+                            self.cache_texts = self.cache_texts[:-1]
+                        Cache.Temp.Keyboard["key_z_cache"]["press"] = False
+                else:
+                    Cache.Temp.Keyboard["key_z_cache"]["press"] = True
 
             for key in set_text:
                 cache_key = Key_Map[key]["cache"]

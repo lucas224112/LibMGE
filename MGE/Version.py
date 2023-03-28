@@ -4,7 +4,7 @@ from os import system
 
 from .Platform import Platform
 
-__version_data__ = {"version": "0.2", "build": "0", "phase": "Stable"}
+__version_data__ = {"version": "0.2", "build": "1", "phase": "Stable"}
 
 __version__ = f"{__version_data__['version']}.{__version_data__['build']}"
 
